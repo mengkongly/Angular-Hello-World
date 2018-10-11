@@ -1,0 +1,37 @@
+<p>
+  test-binding works!
+</p>
+
+<input type="text" [(ngModel)]="auto_type"/>
+{{auto_type}}
+
+<h2 *ngIf="displayName; else elseBlock">Remove Or Display DOM Element</h2>
+<div>Display Name: {{displayName}}</div>
+<ng-template #elseBlock>
+  <h2>
+    DOM element is hiden.
+  </h2>
+</ng-template>
+
+<div [ngSwitch]="color">
+  <h2 *ngSwitchCase="'red'">You picked red color.</h2>
+  <h2 *ngSwitchCase="'blue'">You picked blue color.</h2>
+  <h2 *ngSwitchCase="'green'">You picked green color.</h2>
+  <h2 *ngSwitchDefault>Please pick again.</h2>
+</div>
+
+/*
+ngFor has the other feather such as:
+index as i,
+first as f,
+last as l,
+odd as o,
+even as e
+*/
+<div *ngFor="let color of colors; index as i; first as f; last as l; odd as o; even as e;"> 
+  <h2>{{i+1}}. {{f}} {{l}} {{o}} {{e}} {{color}}</h2>
+</div>
+
+
+<h2>Welcome {{name}}</h2>
+<button (click)="fireEvent()">Send to Parent</button>
